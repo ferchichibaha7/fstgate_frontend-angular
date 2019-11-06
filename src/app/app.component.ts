@@ -8,3 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Fstgate';
 }
+
+export const urlb="http://localhost:4200/";
