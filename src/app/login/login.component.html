@@ -1,5 +1,13 @@
+
 <div class="container">
-  <div *ngIf="isLoggedIn; else loggedOut">Logged in as {{ roles }}.</div>
+  <div *ngIf="isLoggedIn; else loggedOut">
+    <div class="status">Hello {{username}} ! you are Logged in as {{ roles }}.</div>
+    <hr>
+
+    <button class="btn btn-secondary" (click)="logout()">Logout</button>
+
+
+</div>
 
   <ng-template #loggedOut>
     <div class="row col-sm-6" style="max-width:350px;">
@@ -53,9 +61,33 @@
       <div>
         <p>Don't have an account?</p>
         <div>
-         <button [routerLink]="['/signup']" >Signup</button>
+         <button class="btn btn-primary" [routerLink]="['/signup']" >Signup</button>
         </div>
       </div>
     </div>
   </ng-template>
 </div>
+
+
+<!-- Write your comments here
+<div class="split left">
+  <div class="centered">
+
+
+
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+
+  </div>
+</div>
+-->

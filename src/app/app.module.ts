@@ -8,6 +8,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { TestComponent } from './test/test.component';
+import { httpInterceptorProviders } from './Services/Auth/auth-interceptor';
+
+
 
 
 @NgModule({
@@ -15,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     PageNotFoundComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +29,10 @@ import { SignupComponent } from './signup/signup.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    MatFormFieldModule
 
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
