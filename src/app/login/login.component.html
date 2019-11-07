@@ -3,8 +3,7 @@
   <div *ngIf="isLoggedIn; else loggedOut">
     <div class="status">Hello {{username}} ! you are Logged in as {{ roles }}.</div>
     <hr>
-    <div class="status">ID : {{userid}} </div>
-    <div class="status">NAME : {{name}} </div>
+
     <button class="btn btn-secondary" (click)="logout()">Logout</button>
 
 

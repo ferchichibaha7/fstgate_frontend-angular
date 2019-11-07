@@ -18,8 +18,7 @@ export class userinfo{
 })
 export class LoginComponent implements OnInit {
   username: string;
-  name2:string;
-  userid2:number;
+
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
@@ -33,7 +32,6 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
       this.username = this.tokenStorage.getUsername();
-this.getinfos()
     }
   }
 
@@ -72,13 +70,10 @@ this.getinfos()
     this.tokenStorage.signOut();
     window.location.reload();
   }
-  getinfos(){
-    this.test.getinfo().subscribe(x=>{
-      console.log(x);
 
-this.name2=x.name;
-this.userid2=x.id;
-    })
-  }
+
+
+
+
 
 }
