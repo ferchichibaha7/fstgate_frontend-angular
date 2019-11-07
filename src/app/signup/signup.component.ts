@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/Auth/auth.service';
 import { SignUpInfo } from '../Services/Auth/signup-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,9 @@ export class SignupComponent implements OnInit {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        setTimeout(() => {
+          this.router.navigate(['login']);
+      }, 2000);  //5s
       },
       error => {
         console.log(error);

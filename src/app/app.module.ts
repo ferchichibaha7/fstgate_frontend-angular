@@ -8,6 +8,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { SignupComponent } from './signup/signup.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    MatFormFieldModule
 
   ],
   providers: [],
