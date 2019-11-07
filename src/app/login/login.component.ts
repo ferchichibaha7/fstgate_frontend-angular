@@ -4,6 +4,13 @@ import { Component, OnInit } from '@angular/core';
 import { AuthLoginInfo } from '../Services/Auth/login-info';
 import { AuthService } from '../Services/Auth/auth.service';
 
+
+export class userinfo{
+  id:number;
+  username:string;
+  name:string
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,8 +18,8 @@ import { AuthService } from '../Services/Auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   username: string;
-  name:string;
-  userid:number;
+  name2:string;
+  userid2:number;
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
@@ -26,8 +33,9 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
       this.username = this.tokenStorage.getUsername();
-
-  }}
+this.getinfos()
+    }
+  }
 
   onSubmit() {
     console.log(this.form);
@@ -64,7 +72,13 @@ export class LoginComponent implements OnInit {
     this.tokenStorage.signOut();
     window.location.reload();
   }
+  getinfos(){
+    this.test.getinfo().subscribe(x=>{
+      console.log(x);
 
-
+this.name2=x.name;
+this.userid2=x.id;
+    })
+  }
 
 }
