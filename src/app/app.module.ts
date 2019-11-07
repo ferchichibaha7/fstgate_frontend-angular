@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { TestComponent } from './test/test.component';
+import { httpInterceptorProviders } from './Services/Auth/auth-interceptor';
 
 
 
@@ -18,7 +20,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppComponent,
     PageNotFoundComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule
 
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
