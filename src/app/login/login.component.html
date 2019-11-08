@@ -1,4 +1,4 @@
-
+<!--
 <div class="container">
   <div *ngIf="isLoggedIn; else loggedOut">
     <div class="status">Hello {{username}} ! you are Logged in as {{ roles }}.</div>
@@ -69,27 +69,118 @@
     </div>
   </ng-template>
 </div>
-
-
-<!-- Write your comments here
-<div class="split left">
-  <div class="centered">
-
-
-
-  </div>
-</div>
-
-<div class="split right">
-  <div class="centered">
-    <div class="example-container">
-      <mat-form-field>
-        <input matInput placeholder="Enter your email" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-    </div>
-
-
-  </div>
-</div>
 -->
+<div *ngIf="isLoggedIn; else loggedOut">
+  <div class="status">
+    Hello {{ username }} ! you are Logged in as {{ roles }}.
+  </div>
+  <hr />
+
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
+  <button class="btn btn-default" [routerLink]="['/test']">Profile</button>
+</div>
+
+<!-- Main -->
+<!-- Main -->
+<ng-template #loggedOut>
+  <div class="d-md-flex h-md-100 align-items-center">
+    <div class="col-md-6 p-0 bg-indigo h-md-100">
+      <div
+        class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center"
+      >
+        <div class="logoarea pt-5 pb-5">
+          <p>
+            <i class="fa fa-anchor fa-3x"></i>
+          </p>
+          <h1 class="welcome mb-0 mt-3 display-4">Welcome To fstgate</h1>
+          <h5 class="mb-4 font-weight-light">
+            join us now and connect with your university
+            <i class="fab fa-sass fa-2x text-cyan"></i>
+          </h5>
+          <button  class="btn btn-outline-light btn-lg btn-round"
+          [routerLink]="['/signup']">CREATE ACOUNT</button>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 p-0 bg-white h-md-100 loginarea clearfix">
+      <img
+        src="../../assets/images/logo.png"
+        class="float-right p-5 logopic"
+        alt=""
+      />
+      <div
+        class="d-md-flex align-items-center h-md-100 p-15 justify-content-center"
+      >
+        <form
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate
+          class="form border rounded p-5"
+        >
+          <h3 class="mb-4 text-center">Sign In</h3>
+          <div class="form-group">
+            <input
+              type="text"
+              minlength="3"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="E-mail / Username"
+              name="username"
+            [(ngModel)]="form.username"
+            #username="ngModel"
+            required
+            />
+            <div *ngIf="f.submitted && username.invalid">
+
+              <div *ngIf="username?.errors.required">Username or email are required</div>
+              <div *ngIf="username?.errors.minlength">
+                Username / email must be at least 6 characters
+              </div>
+                       </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              name="password"
+            [(ngModel)]="form.password"
+            #password="ngModel"
+            required
+            minlength="6"
+            autocomplete="true"
+            />
+          </div>
+
+
+          <div *ngIf="f.submitted && password.invalid">
+
+              <div *ngIf="password?.errors.required">Password is required</div>
+              <div *ngIf="password?.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+
+            </div>
+
+          <div class="form-group">
+            <button class="btn btn-light btn-round btn-block shadow-sm mb-4">Login</button>
+            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+
+              Login failed: {{ errorMessage }}
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <ng-template #loggedOut>
+    <!-- End Main -->
+
+    <!-- End Main -->
+  </ng-template></ng-template
+>
