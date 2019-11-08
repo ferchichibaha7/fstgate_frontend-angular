@@ -6,11 +6,6 @@ import { TokenStorageService } from './token-storage.service';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> Develop
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
