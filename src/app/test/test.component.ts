@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../Services/Auth/token-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../Services/Data/test.service';
 
@@ -10,7 +11,7 @@ export class TestComponent implements OnInit {
   userid:number;
   id:number;
   name:string;
-  constructor(private test: TestService) { }
+  constructor(private test: TestService,private tokenStorage:TokenStorageService) { }
 
   ngOnInit() {
     this.test.getinfo().subscribe(data=>{
@@ -18,5 +19,11 @@ export class TestComponent implements OnInit {
      this.userid=data.id
     })
   }
+
+  logout() {
+ this.tokenStorage.signOut() ;
+    window.location.reload();
+  }
+
 
 }
