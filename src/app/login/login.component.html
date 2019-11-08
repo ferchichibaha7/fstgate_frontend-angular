@@ -89,10 +89,11 @@
         class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center"
       >
         <div class="logoarea pt-5 pb-5">
-          <p>
-            <i class="fa fa-anchor fa-3x"></i>
-          </p>
-          <h1 class="welcome mb-0 mt-3 display-4">Welcome To fstgate</h1>
+            <img
+            src="../../assets/images/logow.png"
+            class=" p-0 logopic2 mb-3"  />
+
+
           <h5 class="mb-4 font-weight-light">
             join us now and connect with your university
             <i class="fab fa-sass fa-2x text-cyan"></i>
@@ -106,7 +107,7 @@
     <div class="col-md-6 p-0 bg-white h-md-100 loginarea clearfix">
       <img
         src="../../assets/images/logo.png"
-        class="float-right p-5 logopic"
+        class="float-right p-5 logopic d-none d-sm-block d-md-block"
         alt=""
       />
       <div
@@ -155,10 +156,7 @@
             autocomplete="true"
             />
           </div>
-
-
-          <div *ngIf="f.submitted && password.invalid">
-
+  <div *ngIf="f.submitted && password.invalid">
               <div *ngIf="password?.errors.required">Password is required</div>
               <div *ngIf="password?.errors.minlength">
                 Password must be at least 6 characters
@@ -181,6 +179,4 @@
   <ng-template #loggedOut>
     <!-- End Main -->
 
-    <!-- End Main -->
-  </ng-template></ng-template
->
+
