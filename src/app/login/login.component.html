@@ -155,10 +155,7 @@
             autocomplete="true"
             />
           </div>
-
-
-          <div *ngIf="f.submitted && password.invalid">
-
+  <div *ngIf="f.submitted && password.invalid">
               <div *ngIf="password?.errors.required">Password is required</div>
               <div *ngIf="password?.errors.minlength">
                 Password must be at least 6 characters
@@ -181,6 +178,4 @@
   <ng-template #loggedOut>
     <!-- End Main -->
 
-    <!-- End Main -->
-  </ng-template></ng-template
->
+
