@@ -9,8 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { TestComponent } from './test/test.component';
 import { httpInterceptorProviders } from './Services/Auth/auth-interceptor';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './home/navbar/navbar.component';
 
 
 
@@ -21,7 +23,9 @@ import { httpInterceptorProviders } from './Services/Auth/auth-interceptor';
     PageNotFoundComponent,
     LoginComponent,
     SignupComponent,
-    TestComponent
+    HomeComponent,
+    NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import { httpInterceptorProviders } from './Services/Auth/auth-interceptor';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgbModule
 
   ],
   providers: [httpInterceptorProviders],

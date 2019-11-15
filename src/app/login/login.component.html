@@ -70,6 +70,7 @@
   </ng-template>
 </div>
 -->
+<div *ngIf="isLoggedIn" class="test">navbar ...</div>
 <div *ngIf="isLoggedIn; else loggedOut">
   <div class="status">
     Hello {{ username }} ! you are Logged in as {{ roles }}.
@@ -155,14 +156,15 @@
             minlength="6"
             autocomplete="true"
             />
-          </div>
-  <div *ngIf="f.submitted && password.invalid">
-              <div *ngIf="password?.errors.required">Password is required</div>
-              <div *ngIf="password?.errors.minlength">
-                Password must be at least 6 characters
-              </div>
+            <div *ngIf="f.submitted && password.invalid">
+                <div *ngIf="password?.errors.required">Password is required</div>
+                <div *ngIf="password?.errors.minlength">
+                  Password must be at least 6 characters
+                </div>
 
-            </div>
+              </div>
+          </div>
+
 
           <div class="form-group">
             <button class="btn btn-light btn-round btn-block shadow-sm mb-4">Login</button>
