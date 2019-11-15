@@ -8,7 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '/', component: HomeComponent  }, // canActivate, RouteGuardService
+
+  { path: '/', component: HomeComponent  }, // canActivate, RouteGuardServ
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: '**', component: PageNotFoundComponent},
