@@ -1,3 +1,5 @@
+import { Group } from './../Models/group';
+import { TestService } from './../Services/Data/test.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/Auth/auth.service';
 import { SignUpInfo } from '../Services/Auth/signup-info';
@@ -14,16 +16,17 @@ export class SignupComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
-  checked = false;
-  indeterminate = false;
-  labelPosition = '2';
-  labelPosition2 = '1';
-  disabled = false;
-  group:number=0;
+  group = 0;
   role:number;
-  constructor(private authService: AuthService,private router: Router) { }
+ groups:Group[];
+  constructor(private authService: AuthService, private router: Router , private testService: TestService) { }
 
   ngOnInit() {
+this.testService.getGroups().subscribe(data=>{
+this.groups=data;
+
+})
+
   }
   onSubmit() {
     console.log(this.form);
@@ -35,9 +38,6 @@ export class SignupComponent implements OnInit {
       this.form.password,
        this.role,
       this.group);
-      console.log(this.form.role);
-
-      console.log(this.form);
 
 
     this.authService.signUp(this.signupInfo).subscribe(
@@ -56,4 +56,6 @@ export class SignupComponent implements OnInit {
       }
     );
   }
+
+
 }

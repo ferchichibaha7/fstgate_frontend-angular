@@ -146,28 +146,26 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="role" id="student" value="3" checked [(ngModel)]="role">
             <label class="form-check-label" for="student">
-I'm a student            </label>
+I'm a Student            </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="role" id="professor" value="2" [(ngModel)]="role">
             <label class="form-check-label" for="professor">
-              I'm a professor            </label>
+              I'm a Professor            </label>
           </div>
-
           <br>
-          <div *ngIf="role==3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="group" id="srt" value="1"  [(ngModel)]="group">
-            <label class="form-check-label" for="srt">
-SRT          </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="group" id="lfi" value="2" [(ngModel)]="group">
-            <label class="form-check-label" for="lfi">
-            LFI           </label>
-          </div>
-        </div>
 
+        <div class="input-group mb-3" *ngIf="role==3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Group</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name="group" [(ngModel)]="group">
+              <option selected value="0" disabled>Choose...</option>
+
+            <option *ngFor="let grp of groups" value="{{grp.id}}">{{grp.name}}</option>
+
+          </select>
+        </div>
 
 
 
