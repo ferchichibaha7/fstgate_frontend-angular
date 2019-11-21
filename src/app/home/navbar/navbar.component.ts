@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+username: string;
   constructor(private storage:TokenStorageService) { }
 
   ngOnInit() {
+    this.username=this.storage.getUsername();
   }
   logout() {
     this.storage.signOut();

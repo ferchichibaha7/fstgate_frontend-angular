@@ -12,7 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate:[RouteGuardService]  }, // canActivate, RouteGuardService
   { path: 'login', component: LoginComponent},
-  { path: 'profile', component:ProfileComponent , canActivate:[RouteGuardService]},
+  { path: ':username', component:ProfileComponent , canActivate:[RouteGuardService]},
   { path: 'signup', component: SignupComponent},
   { path: '**', component: PageNotFoundComponent, canActivate:[RouteGuardService]},
 ];
