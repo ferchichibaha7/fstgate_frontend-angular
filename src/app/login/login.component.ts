@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getAuthorities();
       this.username = this.tokenStorage.getUsername();
     }
+     console.log( this.tokenStorage.isUserLoggedIn());
+
   }
 
   onSubmit() {
@@ -52,7 +54,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
         this.reloadPage();
-
+        console.log( this.tokenStorage.isUserLoggedIn());
       },
       error => {
         console.log(error);

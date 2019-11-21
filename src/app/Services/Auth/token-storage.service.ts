@@ -11,6 +11,12 @@ export class TokenStorageService {
   private roles: Array<string> = [];
   constructor() { }
 
+  isUserLoggedIn(){
+    let user = localStorage.getItem('AuthToken')
+    return !(user==null)
+  }
+
+
   signOut() {
     window.localStorage.clear();
   }

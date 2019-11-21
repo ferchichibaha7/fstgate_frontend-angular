@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../Services/Auth/token-storage.service';
 import { Group } from './../Models/group';
 import { TestService } from './../Services/Data/test.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,11 +20,13 @@ export class SignupComponent implements OnInit {
   group = 0;
   role:number;
  groups:Group[];
-  constructor(private authService: AuthService, private router: Router , private testService: TestService) { }
+  constructor(private authService: AuthService, private router: Router , private testService: TestService,private storage:TokenStorageService) { }
 
   ngOnInit() {
 this.testService.getGroups().subscribe(data=>{
 this.groups=data;
+console.log(this.storage.isUserLoggedIn());
+
 
 })
 
