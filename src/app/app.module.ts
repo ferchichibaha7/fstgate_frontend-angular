@@ -13,6 +13,9 @@ import { httpInterceptorProviders } from './Services/Auth/auth-interceptor';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
+import { ProfileComponent } from './home/profile/profile.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -25,6 +28,7 @@ import { NavbarComponent } from './home/navbar/navbar.component';
     SignupComponent,
     HomeComponent,
     NavbarComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -34,7 +38,9 @@ import { NavbarComponent } from './home/navbar/navbar.component';
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    NgbModule
+    NgbModule,
+    MatCheckboxModule,
+    MatRadioModule
 
   ],
   providers: [httpInterceptorProviders],

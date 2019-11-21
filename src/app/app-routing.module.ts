@@ -1,3 +1,4 @@
+import { ProfileComponent } from './home/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,10 +11,9 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', component: HomeComponent  }, // canActivate, RouteGuardService
   { path: 'login', component: LoginComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: 'signup', component: SignupComponent},
   { path: '**', component: PageNotFoundComponent},
-
-
 ];
 
 @NgModule({

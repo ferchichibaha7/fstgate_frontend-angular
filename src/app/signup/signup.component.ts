@@ -14,6 +14,13 @@ export class SignupComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
+  checked = false;
+  indeterminate = false;
+  labelPosition = '2';
+  labelPosition2 = '1';
+  disabled = false;
+  group:number=0;
+  role:number;
   constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
@@ -25,7 +32,13 @@ export class SignupComponent implements OnInit {
       this.form.name,
       this.form.username,
       this.form.email,
-      this.form.password);
+      this.form.password,
+       this.role,
+      this.group);
+      console.log(this.form.role);
+
+      console.log(this.form);
+
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
