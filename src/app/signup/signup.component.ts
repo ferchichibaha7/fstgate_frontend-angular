@@ -25,8 +25,11 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
 this.testService.getGroups().subscribe(data=>{
 this.groups=data;
-console.log(this.storage.isUserLoggedIn());
 
+
+if(this.storage.isUserLoggedIn()){
+  this.router.navigate(['/']);
+}
 
 })
 
