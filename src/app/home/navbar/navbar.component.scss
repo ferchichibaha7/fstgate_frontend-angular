@@ -3,9 +3,7 @@
   margin-bottom: 30px !important;
 }
 
-.profile_set{
-  margin-right:150px !important;
-}
+
 .active>a{
   color: #FF6A30 !important;
   border-bottom: 3px solid #FF6A30;
@@ -13,6 +11,13 @@
 
 
 }
+.dropdown-toggle{
+color: #3A393F !important;
+
+}
+.dropdown-toggle:after { content: none }
+.dropdown-item:active{background-color: #6C648B !important;}
+
 .left_nav{
   margin-left: 20%;
 }
@@ -22,8 +27,14 @@
 .nav-item>a{
   margin-right: 15px;
   font-weight: 500;
+  transition: color 0.4s ease-in-out;
 }
 .logo{
 height: 40px;
+}
+.profile_pic{
+  height: 40px;
+  width: 40px;
+  margin-right: 7px;
 }
 

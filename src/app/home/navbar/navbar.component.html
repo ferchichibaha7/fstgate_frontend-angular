@@ -12,26 +12,30 @@
             <a class="nav-link" [routerLink]="['/']">Home</a>
           </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/colleagues']">My colleagues</a>
+        <a class="nav-link" [routerLink]="['/students/test']">Students</a>
       </li>
 
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/professors']">My professors</a>
+        <a class="nav-link" [routerLink]="['/professors/test']">Professors</a>
       </li>
 
       <li class="nav-item" [routerLinkActive]="['active']">
-          <a class="nav-link" [routerLink]="['/Explore']">Explore</a>
+          <a class="nav-link" [routerLink]="['/Explore/test']">Explore</a>
         </li>
 
 
     </ul>
     <div class="nav-item dropdown profile_set">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Dropdown
+
+          <img class="profile_pic rounded-circle" src="../../../assets/images/profilepic.png">
+          <span class="name" >{{name}}</span>
+
+
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/',username]">Profile</a>
-          <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
+          <a class="dropdown-item" [routerLink]="['/settings/test']">Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="" (click)="logout()">Logout</a>
         </div>
