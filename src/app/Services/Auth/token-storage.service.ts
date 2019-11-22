@@ -12,8 +12,8 @@ export class TokenStorageService {
   constructor() { }
 
   isUserLoggedIn(){
-    let user = localStorage.getItem('AuthToken')
-    return !(user==null)
+    let token = localStorage.getItem('AuthToken')
+    return !(token==null)
   }
 
 
