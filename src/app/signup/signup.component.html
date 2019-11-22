@@ -170,12 +170,8 @@ I'm a Student            </label>
 
           <div class="form-group">
             <button class="btn btn-light btn-round btn-block shadow-sm mb-4">Signup</button>
-            <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-              Signup failed!<br/>{{errorMessage}}
-  </div>
-            <div *ngIf="isSignedUp">
-              Your registration is successful. Please login!
-            </div>
+
+
           </div>
         </form>
       </div>

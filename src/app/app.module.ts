@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -40,7 +41,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     NgbModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    ToastrModule.forRoot() // ToastrModule added
+
 
   ],
   providers: [httpInterceptorProviders],
