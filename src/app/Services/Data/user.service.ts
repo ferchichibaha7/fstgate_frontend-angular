@@ -20,4 +20,13 @@ export class UserService {
   getUserProfile(): Observable<UserProfile> {
     return this.http.get<UserProfile>(this.baseurl+'user/me',httpOptions);
   }
+
+  getUserPrev(): Observable<any> {
+    return this.http.get<any>(this.baseurl+'users/prev',httpOptions);
+  }
+
+  getPostsByGroup(idgroup:number): Observable<any> {
+    return this.http.get<any>(this.baseurl+'posts/group/'+idgroup,httpOptions);
+  }
+
 }
