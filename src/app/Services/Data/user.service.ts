@@ -21,12 +21,25 @@ export class UserService {
     return this.http.get<UserProfile>(this.baseurl+'user/me',httpOptions);
   }
 
-  getUserPrev(): Observable<any> {
-    return this.http.get<any>(this.baseurl+'users/prev',httpOptions);
+  getStudPrev(): Observable<any> {
+    return this.http.get<any>(this.baseurl+'users/stud/prev',httpOptions);
+  }
+
+  getProfPrev(): Observable<any> {
+    return this.http.get<any>(this.baseurl+'users/prof/prev',httpOptions);
   }
 
   getPostsByGroup(idgroup:number): Observable<any> {
     return this.http.get<any>(this.baseurl+'posts/group/'+idgroup,httpOptions);
   }
+  getPostsBySubGroup(idsub:number): Observable<any> {
+    return this.http.get<any>(this.baseurl+'posts/subgroup/'+idsub,httpOptions);
+  }
+
+  getSubByGroup(idgroup:number): Observable<any> {
+    return this.http.get<any>(this.baseurl+'subgroup/group/'+idgroup,httpOptions);
+  }
+
+
 
 }

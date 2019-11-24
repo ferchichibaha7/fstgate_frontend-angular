@@ -5,24 +5,44 @@
       <div class="card ">
 
  <div class="status ">
-          Hello {{ username }} ! you are Logged in as {{ roles }}.
-          And a member in group  {{ group }}
+  <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Group</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name="group" [(ngModel)]="selectedgroup"
+          (ngModelChange)="getProfGroups('grp.group.id', $event)">
+          >
+            <option *ngFor="let grp of group" [value]="grp.group.id">{{grp.group.name}}</option>
+
+          </select>
         </div>
+
+
+          Hello {{ username }} ! you are Logged in as {{ roles }}.
+         And a member in groups:<span   *ngFor="let g of group" > {{g.group.name}}</span>
+
+        </div>
+
+        <button (click)="getProfGroups('grp.group.id', $event)"  >All Posts</button>
+            <button (click)="getsubPosts(sub.id)"  *ngFor="let sub of subgroups ">    {{sub.name}}</button>
+
 
       </div>
     </div>
     <div class="col-6 ">
       <div class="card">
-        <div class="status">
-      <div class="post" *ngFor="let post of allPosts.slice().reverse()">
+        <div class="status" >
+
+      <div class="post"  *ngFor="let post of allPosts.slice().reverse()">
         title : {{post.title}} <br>
         description : {{post.description}}
         <br>
         <br>
       </div>
-      <div *ngIf="!allposts">
+      <div *ngIf="allPosts.length==0">
       There is no posts
       </div>
+
         </div>
       </div>
     </div>

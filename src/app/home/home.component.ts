@@ -11,9 +11,13 @@ import { async } from 'q';
 export class HomeComponent implements OnInit {
   username: string;
   roles: string[] = [];
-  group:string;
+  group:any;
+  subgroups:any;
+  index:any=0;
+ selectedgroup:any=0;
   groupid:number;
   allPosts:any;
+  subposts:any;
   constructor(
     private tokenstorage:TokenStorageService,
     private userservice:UserService
@@ -22,8 +26,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.roles = this.tokenstorage.getAuthorities();
     this.username = this.tokenstorage.getUsername();
+console.log(this.roles);
 
-this.getgroup()
+if(this.roles[0]=="ROLE_STUD"){
+  this.getProfGroups()
+}
+
+else this.getProfGroups()
+
 
 
 
@@ -31,15 +41,27 @@ this.getgroup()
 
   }
 
- getgroup(){
-  this.userservice.getUserPrev().subscribe(data=>{
-    this.group=data.group.name;
-    this.groupid=data.group.id;
+ getStudGroup(){
+  this.userservice.getStudPrev().subscribe(data=>{
+    this.group=data;
+
 console.log(this.groupid);
-this.getgroupPosts(this.groupid)
+
 });
+}
 
 
+getProfGroups(){
+  this.userservice.getProfPrev().subscribe(data=>{
+    this.group=data;
+    console.log(this.group);
+    let gid=this.selectedgroup;
+    this.getsub(gid);
+    this.allPosts=this.getgroupPosts(gid)
+    console.log("this is selected group:"+this.selectedgroup);
+
+
+  })
 }
 
 getgroupPosts(id:number){
@@ -49,5 +71,18 @@ getgroupPosts(id:number){
 
   })
 }
+
+getsubPosts(id:number){
+  this.userservice.getPostsBySubGroup(id).subscribe(data=>{
+this.allPosts=data;
+  })
+}
+
+getsub(id:number){
+  this.userservice.getSubByGroup(id).subscribe(data=>{
+this.subgroups=data;
+  })
+}
+
 
 }

@@ -23,7 +23,14 @@ id:number
 this.username=userinfo.username;
 this.name=userinfo.name;
 this.id=userinfo.id;
-    });
+  console.log(userinfo);
+
+
+});
+
+
+
+
   }
   logout() {
     this.storage.signOut();

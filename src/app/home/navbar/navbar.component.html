@@ -12,15 +12,15 @@
             <a class="nav-link" [routerLink]="['/']">Home</a>
           </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/students/test']">Students</a>
+        <a class="nav-link" [routerLink]="['/students']">Students</a>
       </li>
 
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/professors/test']">Professors</a>
+        <a class="nav-link" [routerLink]="['/professors']">Professors</a>
       </li>
 
       <li class="nav-item" [routerLinkActive]="['active']">
-          <a class="nav-link" [routerLink]="['/Explore/test']">Explore</a>
+          <a class="nav-link" [routerLink]="['/Explore']">Explore</a>
         </li>
 
 
@@ -34,8 +34,8 @@
 
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/',username]">Profile</a>
-          <a class="dropdown-item" [routerLink]="['/settings/test']">Settings</a>
+          <a class="dropdown-item" [routerLink]="['/user/',username]">Profile</a>
+          <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="" (click)="logout()">Logout</a>
         </div>

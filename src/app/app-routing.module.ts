@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent},
   { path: '', component: HomeComponent, canActivate:[RouteGuardService]  }, // canActivate, RouteGuardService
-  { path: ':username', component: ProfileComponent , canActivate:[RouteGuardService]},
+  { path: 'user/:username', component: ProfileComponent , canActivate:[RouteGuardService]},
   { path: '**', component: PageNotFoundComponent, canActivate:[RouteGuardService]},
 
 ];
