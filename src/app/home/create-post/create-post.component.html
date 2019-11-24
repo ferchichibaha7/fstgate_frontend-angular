@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Favorite Animal</h1>
+<div mat-dialog-content>
+    <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
+        <input type = "text" name = "subid" placeholder = "subid" ngModel>
+        <br/>
+        <input type = "text" name = "title" placeholder = "title" ngModel>
+        <br/>
+        <input type = "text" name = "description" placeholder = "description" ngModel>
+        <br/>
+        <input type = "submit" value = "submit">
+      </form>
+</div>

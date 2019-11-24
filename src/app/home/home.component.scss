@@ -1,5 +1,5 @@
 
-
+@import '../../Sass/variables';
 .card{
   background-color: white;
   border-radius: 8px;
@@ -8,5 +8,9 @@
   -moz-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.36);
   box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.36);
 padding: 20px;
+}
+
+.create{
+  background-color:$color-button-primary ;
 }
 

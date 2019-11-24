@@ -1,3 +1,4 @@
+import { Post } from './../../Models/post';
 import { UserProfile } from './../../Models/UserProfile';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -40,6 +41,13 @@ export class UserService {
     return this.http.get<any>(this.baseurl+'subgroup/group/'+idgroup,httpOptions);
   }
 
+  createPost(id:number,Post): Observable<any> {
+    return this.http.post<any>(this.baseurl+'posts/'+id,Post,httpOptions);
+  }
+
+  deletePost(id:number): Observable<any> {
+    return this.http.delete<any>(this.baseurl+'posts/'+id,httpOptions);
+  }
 
 
 }

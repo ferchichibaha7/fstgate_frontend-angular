@@ -3,46 +3,53 @@
   <div class="row">
     <div class="col-3  ">
       <div class="card ">
+        <div class="status ">
+          <mat-form-field>
+            <mat-label>Group</mat-label>
+            <mat-select
+              id="inputGroupSelect01"
+              name="group"
+              [(ngModel)]="selectedgroup"
+              (ngModelChange)="getProfGroups('grp.group.id', $event)">
+              <mat-option
+                *ngFor="let grp of group; let i = index"
+                [value]="grp.group.id">{{ grp.group.name }}</mat-option>
+            </mat-select> </mat-form-field
+          ><br />
 
- <div class="status ">
-  <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Group</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" name="group" [(ngModel)]="selectedgroup"
-          (ngModelChange)="getProfGroups('grp.group.id', $event)">
-          >
-            <option *ngFor="let grp of group" [value]="grp.group.id">{{grp.group.name}}</option>
-
-          </select>
+          Hello {{ username }} ! you are Logged in as {{ roles }}. And a member
+          in groups:<span *ngFor="let g of group"> {{ g.group.name }}</span>
         </div>
 
-
-          Hello {{ username }} ! you are Logged in as {{ roles }}.
-         And a member in groups:<span   *ngFor="let g of group" > {{g.group.name}}</span>
-
-        </div>
-
-        <button class="btn btn-link mt-3" (click)="getProfGroups('grp.group.id', $event)"  >All Posts</button>
-            <button class="btn btn-light mt-3" (click)="getsubPosts(sub.id)"  *ngFor="let sub of subgroups ">    {{sub.name}}</button>
-
-
+        <button
+          class="btn btn-link mt-3"
+          (click)="getProfGroups('grp.group.id', $event)"
+        >
+          All Posts
+        </button>
+        <button
+          class="btn btn-light mt-3"
+          (click)="getsubPosts(sub.id)"
+          *ngFor="let sub of subgroups"
+        >
+          {{ sub.name }}
+        </button>
       </div>
     </div>
     <div class="col-6 ">
       <div class="card">
-        <div class="status" >
+        <div class="status">
+          <div class="post" *ngFor="let post of allPosts">
+            title : {{ post.title }} <br />
+            description : {{ post.description }}
 
-      <div class="post"  *ngFor="let post of allPosts.slice().reverse()">
-        title : {{post.title}} <br>
-        description : {{post.description}}
-        <br>
-        <br>
-      </div>
-      <div *ngIf="allPosts.length==0">
-      There is no posts
-      </div>
-
+            <button *ngIf="owner(post.createdBy)" class="btn btn-link" (click)="deletePost(post.id)">delete</button>
+            <br>
+            <br />
+          </div>
+          <div *ngIf="allPosts.length == 0">
+            There is no posts
+          </div>
         </div>
       </div>
     </div>
@@ -51,17 +58,27 @@
         <div class="status">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor Lorem ipsum dolor sit amet,
-
         </div>
-        <button  type="button" class="btn btn-dark mt-3">CREATE POST</button>
+        <button
+          type="button"
+          class="mt-3 create"
+          mat-raised-button
+          color="primary"
+          (click)="openDialog()"
+        >
+          CREATE POST
+        </button>
       </div>
       <div class="card mt-3">
-          <div class="status">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor Lorem ipsum dolor sit amet,
-
-          </div>
+        <div class="status">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor Lorem ipsum dolor sit amet,
         </div>
+        <mat-radio-group class="mt-3" aria-label="Select an option">
+          <mat-radio-button value="1">Option 1</mat-radio-button><br />
+          <mat-radio-button value="2">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </div>
     </div>
   </div>
 </div>
