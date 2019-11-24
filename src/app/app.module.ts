@@ -24,7 +24,6 @@ import { CreatePostComponent } from './home/create-post/create-post.component';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

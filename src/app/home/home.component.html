@@ -40,8 +40,9 @@
       <div class="card">
         <div class="status">
           <div class="post" *ngFor="let post of allPosts">
-            title : {{ post.title }} <br />
-            description : {{ post.description }}
+            <img class="thumb " src="../../assets/images/post.png" alt="">
+            {{ post.title }} <br />
+            {{ post.description }}
 
             <button *ngIf="owner(post.createdBy)" class="btn btn-link" (click)="deletePost(post.id)">delete</button>
             <br>

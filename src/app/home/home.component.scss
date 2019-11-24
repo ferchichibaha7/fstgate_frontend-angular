@@ -13,4 +13,13 @@ padding: 20px;
 .create{
   background-color:$color-button-primary ;
 }
+.post{
+  display: flex;
+  margin-bottom: 20px;
+}
+.thumb{
+  max-width:100px;
+  height:auto;
+  margin-right: 10px;
 
+}

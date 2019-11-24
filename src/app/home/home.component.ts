@@ -34,33 +34,29 @@ Uprofile:any
     ) { }
     openDialog() : void {
       const dialogRef =this.dialog.open(CreatePostComponent, {
+width:"60%",
         data: {
           animal: 'panda'
         }
       });
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-        this.post = result;
-        console.log(this.post);
         this.getProfGroups()
       });
     }
 
   ngOnInit() {
- this.getStudGroup();
 
- console.log("index in init:"+ this.index);
-
- this.getUserProfile();
-
+    this.getStudGroup();
 
     this.roles = this.tokenstorage.getAuthorities();
     this.username = this.tokenstorage.getUsername();
-  this.getProfGroups()
+
+
 
   }
 
   getStudGroup(){
+    this.getUserProfile();
   this.userservice.getStudPrev().subscribe(data=>{
    if (this.selectedgroup){
      this.selectedgroup=this.index
@@ -68,7 +64,7 @@ Uprofile:any
    else
   this.selectedgroup=data.group.id
 
-
+  this.getProfGroups()
 });
 }
 
@@ -125,9 +121,7 @@ deletePost(id:number){
 
 
 owner(id:number){
-  console.log("fffffffffff"+this.Uprofile.id);
-
-  if (id==this.Uprofile.id)
+ if (id==this.Uprofile.id)
 return true
   else
  return false

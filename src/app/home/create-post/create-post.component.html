@@ -1,12 +1,33 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-    <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
-        <input type = "text" name = "subid" placeholder = "subid" ngModel>
+
+
+ <form class="form" #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+
+
+<div>
+    <input class="form-control" type = "text" name = "subid" placeholder = "subid" ngModel>
         <br/>
-        <input type = "text" name = "title" placeholder = "title" ngModel>
+        <input class="form-control" type = "text" name = "title" placeholder = "title" ngModel>
         <br/>
-        <input type = "text" name = "description" placeholder = "description" ngModel>
+        <textarea rows="4" cols="50" class="form-control" name = "description" placeholder = "Enter text here..." ngModel></textarea>
         <br/>
-        <input type = "submit" value = "submit">
-      </form>
-</div>
+      </div>
+
+
+  <p>The metadata for a component class associates it with a template that defines a view. A
+  template combines ordinary HTML with Angular directives and binding markup that allow Angular
+  to modify the HTML before rendering it for display.</p>
+
+  <p>The metadata for a service class provides the information Angular needs to make it available
+  to components through Dependency Injection (DI).</p>
+
+  <p>An app's components typically define many views, arranged hierarchically. Angular provides
+  the Router service to help you define navigation paths among views. The router provides
+  sophisticated in-browser navigational capabilities.</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button class="create-btn" type = "submit" value = "submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Create Post</button>
+  </mat-dialog-actions>
+</form>
