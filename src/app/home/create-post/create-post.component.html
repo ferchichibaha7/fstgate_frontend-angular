@@ -1,16 +1,17 @@
 
 
- <form class="form" #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
-<h2 mat-dialog-title>Install Angular</h2>
+ <form class="form" #myform = "ngForm" (ngSubmit) = "myform.form.valid && onSubmit(myform)" >
+<h2 mat-dialog-title>Create a post</h2>
 <mat-dialog-content class="mat-typography">
 
 
 <div>
-    <input class="form-control" type = "text" name = "subid" placeholder = "subid" ngModel>
+    <input id="subid"  class="form-control" type = "text" name = "subid" placeholder = "subid" ngModel required  >
+
         <br/>
-        <input class="form-control" type = "text" name = "title" placeholder = "title" ngModel>
+        <input id="title"  class="form-control" type = "text" name = "title" placeholder = "title" ngModel required  minlength="4">
         <br/>
-        <textarea rows="4" cols="50" class="form-control" name = "description" placeholder = "Enter text here..." ngModel></textarea>
+        <textarea required  minlength="4"  rows="4" cols="50" class="form-control" name = "description" placeholder = "Enter text here..." ngModel></textarea>
         <br/>
       </div>
 
@@ -28,6 +29,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button class="create-btn" type = "submit" value = "submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Create Post</button>
+    <button [disabled]="!myform.valid" class="create-btn" type = "submit" value = "submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Create Post</button>
   </mat-dialog-actions>
 </form>

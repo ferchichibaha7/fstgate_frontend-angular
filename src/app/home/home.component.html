@@ -3,26 +3,25 @@
   <div class="row">
     <div class="col-3  ">
       <div class="card ">
-        <div class="status ">
           <mat-form-field>
-            <mat-label>Group</mat-label>
-            <mat-select
+              <mat-label>Group</mat-label>
+              <mat-select  [disabled]="group.length==1"
               id="inputGroupSelect01"
               name="group"
               [(ngModel)]="selectedgroup"
               (ngModelChange)="getProfGroups('grp.group.id', $event)">
-              <mat-option
-                *ngFor="let grp of group; let i = index"
+                <mat-option *ngFor="let grp of group; let i = index"
                 [value]="grp.group.id">{{ grp.group.name }}</mat-option>
-            </mat-select> </mat-form-field
-          ><br />
-
+              </mat-select>
+            </mat-form-field>
+          <!-- Main
+        <div class="status ">
           Hello {{ username }} ! you are Logged in as {{ roles }}. And a member
           in groups:<span *ngFor="let g of group"> {{ g.group.name }}</span>
-        </div>
+        </div> -->
 
         <button
-          class="btn btn-link mt-3"
+          class="btn btn-link "
           (click)="getProfGroups('grp.group.id', $event)"
         >
           All Posts
@@ -34,6 +33,7 @@
         >
           {{ sub.name }}
         </button>
+
       </div>
     </div>
     <div class="col-6 ">

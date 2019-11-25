@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class CreatePostComponent implements OnInit {
 post:Post
 form: any = {};
-subid:any
+subid:number
   constructor(
     public dialogRef: MatDialogRef<CreatePostComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData ,private userservice:UserService) { }
@@ -26,19 +26,20 @@ subid:any
   }
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value);
+
     this.post=new Post(
     form.value.title,
     form.value.description,
     )
     this.subid=form.value.subid;
-    console.log(this.post , this.subid);
-
+    console.log(this.post ,this.subid);
 
     this.userservice.createPost(this.subid,this.post).subscribe(data=>{
       console.log(data)
 
       this.dialogRef.close();
     })
+
  }
  reloadPage() {
   window.location.reload();

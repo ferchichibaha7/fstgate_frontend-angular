@@ -17,7 +17,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   username: string;
   post:any
-
+dis:boolean=false
   roles: string[] = [];
 Uprofile:any
   group:any;
@@ -72,7 +72,10 @@ width:"60%",
 getProfGroups(){
   this.userservice.getProfPrev().subscribe(data=>{
     this.group=data;
-    console.log(this.group);
+    console.log("okokokok"+this.group);
+
+
+
     let gid=this.selectedgroup;
     this.getsub(gid);
     this.allPosts=this.getgroupPosts(gid)
