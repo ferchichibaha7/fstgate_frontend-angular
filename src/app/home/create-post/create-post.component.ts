@@ -2,7 +2,6 @@ import { Post } from './../../Models/post';
 import { UserService } from 'src/app/Services/Data/user.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '../home.component';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -13,10 +12,10 @@ import { NgForm } from '@angular/forms';
 export class CreatePostComponent implements OnInit {
 post:Post
 form: any = {};
-subid:number
+subid:number=0
   constructor(
     public dialogRef: MatDialogRef<CreatePostComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData ,private userservice:UserService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any ,private userservice:UserService) { }
 
   ngOnInit() {
   }

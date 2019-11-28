@@ -49,5 +49,9 @@ export class UserService {
     return this.http.delete<any>(this.baseurl+'posts/'+id,httpOptions);
   }
 
+  getUserProfileById(id:number): Observable<UserProfile> {
+    return this.http.get<UserProfile>(this.baseurl+'users/'+id,httpOptions);
+  }
+
 
 }

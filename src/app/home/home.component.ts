@@ -6,9 +6,7 @@ import { async } from 'q';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { MatDialog } from '@angular/material/dialog';
 
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -36,7 +34,8 @@ Uprofile:any
       const dialogRef =this.dialog.open(CreatePostComponent, {
 width:"60%",
         data: {
-          animal: 'panda'
+          subgroups: this.subgroups,
+
         }
       });
       dialogRef.afterClosed().subscribe(result => {

@@ -21,6 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreatePostComponent } from './home/create-post/create-post.component';
+import { FooterComponent } from './home/footer/footer.component';
 
 
 
@@ -34,6 +35,7 @@ import { CreatePostComponent } from './home/create-post/create-post.component';
     NavbarComponent,
     ProfileComponent,
     CreatePostComponent,
+    FooterComponent,
 
   ],
   imports: [

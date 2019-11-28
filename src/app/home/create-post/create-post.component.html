@@ -6,9 +6,20 @@
 
 
 <div>
-    <input id="subid"  class="form-control" type = "text" name = "subid" placeholder = "subid" ngModel required  >
 
-        <br/>
+    <div class="input-group mb-3" >
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="subid">SubGroup</label>
+        </div>
+        <select required  class="form-control" id="subid" [(ngModel)]="subid" name="subid" >
+            <option selected value="0">Choose...</option>
+           <option *ngFor="let sub of data.subgroups" value="{{sub.id}}">{{sub.name}}</option>
+
+        </select>
+        </div>
+<br>
+
+
         <input id="title"  class="form-control" type = "text" name = "title" placeholder = "title" ngModel required  minlength="4">
         <br/>
         <textarea required  minlength="4"  rows="4" cols="50" class="form-control" name = "description" placeholder = "Enter text here..." ngModel></textarea>
@@ -29,6 +40,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button [disabled]="!myform.valid" class="create-btn" type = "submit" value = "submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Create Post</button>
+    <button  [disabled]="!myform.valid || subid==0" class="create-btn" type = "submit" value = "submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Create Post</button>
   </mat-dialog-actions>
 </form>
