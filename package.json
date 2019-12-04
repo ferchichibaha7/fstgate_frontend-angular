@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.13",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "bootstrap": "^4.3.1",
+    "bootstrap-select": "^1.13.12",
     "jquery": "^3.4.1",
     "mdbootstrap": "^4.8.11",
     "ngx-toastr": "^11.2.1",

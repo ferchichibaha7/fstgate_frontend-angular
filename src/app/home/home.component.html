@@ -100,23 +100,24 @@
           CREATE POST
         </button>
       </div>
-      <div class="card mt-3">
+      <div class="card mt-3" *ngIf="roles[0]=='ROLE_ADMIN' && PendingUsers.length!=0">
         <div class="status">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor Lorem ipsum dolor sit amet,
-        </div>
-        <mat-radio-group class="mt-3" aria-label="Select an option">
-          <mat-radio-button value="1">Option 1</mat-radio-button><br />
-          <mat-radio-button value="2">Option 2</mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <div class="card mt-3">
-          <div class="status">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor Lorem ipsum dolor sit amet,
-          </div>
+         <div  *ngFor="let p_user of PendingUsers">
+           <div class="pendingUser">
+              <img class="profile_pic " src="../../assets/images/profilepic.png">
+          <span class="name" >{{p_user.name}}</span>
+          <span class="activebtn"  > <button (click)="activateUser(p_user.id,p_user.name)">activate</button> </span>
+           </div>
 
         </div>
+      </div>
+    </div>
+    <div class="card mt-3">
+      <div class="status">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor Lorem ipsum dolor sit amet,
+      </div>
+
     </div>
   </div>
 </div>

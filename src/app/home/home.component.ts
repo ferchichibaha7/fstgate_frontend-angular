@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Group } from './../Models/group';
 import { TokenStorageService } from './../Services/Auth/token-storage.service';
 import { Component, OnInit } from '@angular/core';
@@ -24,11 +25,13 @@ Uprofile:any
  selectedgroup:any;
   groupid:number;
   allPosts:any;
+  PendingUsers:any
   subposts:any;
   constructor(
     private tokenstorage:TokenStorageService,
     private userservice:UserService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private toastr: ToastrService
     ) { }
     openDialog() : void {
       const dialogRef =this.dialog.open(CreatePostComponent, {
@@ -64,6 +67,7 @@ width:"60%",
   this.selectedgroup=data.group.id
 
   this.getProfGroups()
+  this.GetPending()
 });
 }
 
@@ -127,6 +131,22 @@ owner(id:number){
 return true
   else
  return false
+}
+
+GetPending(){
+  this.userservice.getPending().subscribe(data=>{
+this.PendingUsers=data;
+  })
+}
+
+activateUser(id:number,name:String){
+  this.userservice.activateUser(id).subscribe(data=>{
+    console.log(data);
+    this.toastr.success( name+' Activated successefully',' Activation');
+
+    this.getStudGroup();
+
+  })
 }
 
 

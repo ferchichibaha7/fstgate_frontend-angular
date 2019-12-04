@@ -53,5 +53,13 @@ export class UserService {
     return this.http.get<UserProfile>(this.baseurl+'users/'+id,httpOptions);
   }
 
+  getPending():Observable<any>{
+    return this.http.get<any>(this.baseurl+'users/pending',httpOptions)
+  }
+
+activateUser(userid:number){
+  return this.http.get(this.baseurl+'users/activate/'+userid,httpOptions)
+}
+
 
 }

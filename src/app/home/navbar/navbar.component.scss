@@ -34,11 +34,39 @@ color: #3A393F !important;
 }
 .logo{
 height: 40px;
+margin-right: 10px;
 }
 .profile_pic{
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   margin-right: 7px;
+  border-radius: 5px;
+}
+.groupselect{
+  width: 90%;
+  border: 0px solid rgba(0, 0, 0, 0.5);
+  transition: border-width 0.1s ;
+}
+.groupselect:hover{
+
+  border: 1px solid rgba(90, 90, 90, 0.1);
+}
+.groupselect:focus{
+box-shadow: none;
+  border: 1px solid rgba(90, 90, 90, 0.1);
+
+}
+
+#groupOption li:hover {
+  background-color:rgb(255, 51, 177) !important;
+  color:white;
+}
+
+
+
+option li:hover{
+background-color: red !important;
+color: white;
 }
 
 
