@@ -22,6 +22,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreatePostComponent } from './home/create-post/create-post.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 
 
 
@@ -36,6 +37,7 @@ import { FooterComponent } from './home/footer/footer.component';
     ProfileComponent,
     CreatePostComponent,
     FooterComponent,
+    ConfirmAccountComponent,
 
   ],
   imports: [

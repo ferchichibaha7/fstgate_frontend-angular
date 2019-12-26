@@ -15,10 +15,7 @@
               </mat-select>
             </mat-form-field>
 
-        <div class="status ">
-          Hello {{ username }} ! you are Logged in as {{ roles }}. And a member
-          in groups:<span *ngFor="let g of group"> {{ g.group.name }}</span>
-        </div>
+
 
 
         <button
@@ -37,10 +34,10 @@
 
       </div>
       <div class="card mt-3">
-          <div class="status">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor Lorem ipsum dolor sit amet,
-          </div>
+        <div class="status ">
+          Hello {{ username }} ! you are Logged in as {{ roles }}. And a member
+          in groups:<span *ngFor="let g of group"> {{ g.group.name }}</span>
+        </div>
 
         </div>
         <div class="card mt-3">

@@ -61,5 +61,9 @@ activateUser(userid:number){
   return this.http.get(this.baseurl+'users/activate/'+userid,httpOptions)
 }
 
+confirmEmail(token:String){
+  return this.http.get(this.baseurl+'api/auth/confirm-account/'+token,httpOptions)
+}
+
 
 }
