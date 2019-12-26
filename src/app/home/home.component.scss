@@ -1,12 +1,53 @@
 
-
+@import '../../Sass/variables';
 .card{
   background-color: white;
   border-radius: 8px;
   border: none;
-  -webkit-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.36);
-  -moz-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.36);
-  box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.36);
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0);
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0);
 padding: 20px;
 }
 
+.create{
+  background-color:$color-button-primary ;
+}
+.post{
+  display: flex;
+  margin-bottom: 20px;
+}
+.thumb{
+
+
+  margin-right: 10px;
+
+}
+.groupselect{
+  width: 500px;
+}
+
+.icon{
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.profile_pic{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+
+  border-radius: 7px;
+}
+.pendingUser{
+  margin-bottom: 15px !important;
+}
+
+.name{
+font-weight: 500;
+}
+.activebtn{
+  margin-left: 8px;
+}

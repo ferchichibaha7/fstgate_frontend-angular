@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/Auth/auth.service';
 import { SignUpInfo } from '../Services/Auth/signup-info';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,13 @@ export class SignupComponent implements OnInit {
   group = 0;
   role:number;
  groups:Group[];
-  constructor(private authService: AuthService, private router: Router , private testService: TestService,private storage:TokenStorageService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router ,
+    private testService: TestService,
+    private storage:TokenStorageService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit() {
 this.testService.getGroups().subscribe(data=>{
@@ -53,14 +60,17 @@ console.log(this.storage.isUserLoggedIn());
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
-        setTimeout(() => {
+
+          this.toastr.success(' Your registration is successful', ' Please login!');
+
           this.router.navigate(['login']);
-      }, 4000);  //5s
+        //5s
       },
       error => {
         console.log(error);
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;
+        this.toastr.error(this.errorMessage,'Signup failed!');
       }
     );
   }

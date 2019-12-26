@@ -1,5 +1,7 @@
+import { userinfo } from './../../login/login.component';
 import { TokenStorageService } from './../../Services/Auth/token-storage.service';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/Services/Data/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 username: string;
-  constructor(private storage:TokenStorageService) { }
+name:string;
+id:number
+  constructor(
+    private storage:TokenStorageService,
+    private userprofile:UserService
+
+    ) { }
 
   ngOnInit() {
-    this.username=this.storage.getUsername();
+   this.userprofile.getUserProfile().subscribe(userinfo=>{
+this.username=userinfo.username;
+this.name=userinfo.name;
+this.id=userinfo.id;
+  console.log(userinfo);
+
+
+});
+
+
+
+
   }
   logout() {
     this.storage.signOut();

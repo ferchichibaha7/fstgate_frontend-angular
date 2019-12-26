@@ -16,7 +16,12 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { ToastrModule } from 'ngx-toastr';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreatePostComponent } from './home/create-post/create-post.component';
+import { FooterComponent } from './home/footer/footer.component';
 
 
 
@@ -29,6 +34,8 @@ import {MatRadioModule} from '@angular/material/radio';
     HomeComponent,
     NavbarComponent,
     ProfileComponent,
+    CreatePostComponent,
+    FooterComponent,
 
   ],
   imports: [
@@ -40,9 +47,16 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     NgbModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDialogModule,
+    ToastrModule.forRoot() // ToastrModule added
+
 
   ],
+
+  entryComponents: [CreatePostComponent],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })

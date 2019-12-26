@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
  <a class="navbar-brand" [routerLink]="['/']"><img class="logo" src="../../../assets/images/logo.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto left_nav">
@@ -12,11 +14,11 @@
             <a class="nav-link" [routerLink]="['/']">Home</a>
           </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/colleagues']">My colleagues</a>
+        <a class="nav-link" [routerLink]="['/students']">Students</a>
       </li>
 
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/professors']">My professors</a>
+        <a class="nav-link" [routerLink]="['/professors']">Professors</a>
       </li>
 
       <li class="nav-item" [routerLinkActive]="['active']">
@@ -27,10 +29,14 @@
     </ul>
     <div class="nav-item dropdown profile_set">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Dropdown
+
+          <img class="profile_pic " src="../../../assets/images/profilepic.png">
+          <span class="name" >{{name}}</span>
+
+
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/',username]">Profile</a>
+        <div class="dropdown-menu dropdown-menu-right drop-profile" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/user/',username]">Profile</a>
           <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="" (click)="logout()">Logout</a>
