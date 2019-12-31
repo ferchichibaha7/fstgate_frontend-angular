@@ -1,7 +1,10 @@
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { map } from 'rxjs/operators';
+import { CreateSubComponent } from './create-sub/create-sub.component';
 import { ToastrService } from 'ngx-toastr';
 import { Group } from './../Models/group';
 import { TokenStorageService } from './../Services/Auth/token-storage.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, enableProdMode } from '@angular/core';
 import { UserService } from '../Services/Data/user.service';
 import { async } from 'q';
 import { CreatePostComponent } from './create-post/create-post.component';
@@ -45,8 +48,38 @@ width:"60%",
         this.getProfGroups()
       });
     }
+    openDialogSub() : void {
+      const dialogRef =this.dialog.open(CreateSubComponent, {
+width:"30%",
+        data: {
+          groupid: this.index,
+
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.getProfGroups()
+      });
+    }
+
+    openDialogPost(post:any) : void {
+      const dialogRef =this.dialog.open(PostDetailsComponent, {
+width:"80%",
+height:"80%",
+
+        data: {
+          post: post,
+
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+
+
+
+      });
+    }
 
   ngOnInit() {
+
 
     this.getStudGroup();
 
@@ -95,9 +128,8 @@ getProfGroups(){
 
 getgroupPosts(id:number){
   this.userservice.getPostsByGroup(id).subscribe(data=>{
-    this.allPosts=data;
-    console.log(this.allPosts);
-
+    this.allPosts=data
+    console.log("post pipipip"+this.allPosts);
   })
 }
 
@@ -118,6 +150,13 @@ getUserProfile(){
     this.Uprofile=data;
   })
 }
+ getUsernameById(id:number){
+
+  this.userservice.getUserProfileById(id).subscribe(data=>{
+   return data
+  })
+
+}
 
 deletePost(id:number){
   this.userservice.deletePost(id).subscribe(data=>{
@@ -127,6 +166,8 @@ deletePost(id:number){
 
 
 owner(id:number){
+  console.log(id);
+
  if (id==this.Uprofile.id)
 return true
   else
@@ -146,6 +187,13 @@ activateUser(id:number,name:String){
 
     this.getStudGroup();
 
+  })
+}
+
+disableSub(id:number){
+  this.userservice.disableSub(id).subscribe(data=>{
+    console.log(data);
+    this.getProfGroups()
   })
 }
 

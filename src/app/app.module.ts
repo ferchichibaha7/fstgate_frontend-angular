@@ -23,6 +23,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CreatePostComponent } from './home/create-post/create-post.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
+import { CreateSubComponent } from './home/create-sub/create-sub.component';
+import { PostDetailsComponent } from './home/post-details/post-details.component';
+import { GetusernamePipe } from './pipe/getusername.pipe';
 
 
 
@@ -38,6 +41,9 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
     CreatePostComponent,
     FooterComponent,
     ConfirmAccountComponent,
+    CreateSubComponent,
+    PostDetailsComponent,
+    GetusernamePipe,
 
   ],
   imports: [
@@ -58,7 +64,7 @@ import { ConfirmAccountComponent } from './confirm-account/confirm-account.compo
 
   ],
 
-  entryComponents: [CreatePostComponent],
+  entryComponents: [CreatePostComponent,CreateSubComponent,PostDetailsComponent],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })

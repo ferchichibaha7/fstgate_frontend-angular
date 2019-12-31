@@ -5,7 +5,7 @@
       <div class="card ">
           <mat-form-field>
               <mat-label>Group</mat-label>
-              <mat-select  [disabled]="group.length==1"
+              <mat-select class="slectgroup" [disabled]="group.length==1"
               id="inputGroupSelect01"
               name="group"
               [(ngModel)]="selectedgroup"
@@ -24,32 +24,48 @@
         >
           All Posts
         </button>
-        <button
-          class="btn btn-light mt-3"
-          (click)="getsubPosts(sub.id)"
-          *ngFor="let sub of subgroups"
-        >
-          {{ sub.name }}
-        </button>
+        <div class="row"  *ngFor="let sub of subgroups">
+          <div class="col-6">
+            <button
+            class="btn btn-light mt-3 btn-block"
+            (click)="getsubPosts(sub.id)"
+
+          >
+            {{ sub.name }}
+          </button>
+            </div>
+            <div class="col-6">
+              <button  (click)="disableSub(sub.id)" type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
 
       </div>
+      </div>
       <div class="card mt-3">
-        <div class="status ">
-          Hello {{ username }} ! you are Logged in as {{ roles }}. And a member
-          in groups:<span *ngFor="let g of group"> {{ g.group.name }}</span>
+        <div class="status">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor Lorem ipsum dolor sit amet,
         </div>
+          <button
+          type="button"
+          class="mt-3 create"
+          mat-raised-button
+          color="primary"
+          (click)="openDialogSub()"
+        >
+          CREATE SUBGROUP
+        </button>
+
+
 
         </div>
         <div class="card mt-3">
-            <div class="status">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor Lorem ipsum dolor sit amet,
-            </div>
-            <mat-radio-group class="mt-3" aria-label="Select an option">
-              <mat-radio-button value="1">Option 1</mat-radio-button><br />
-              <mat-radio-button value="2">Option 2</mat-radio-button>
-            </mat-radio-group>
-          </div>
+            <div class="status ">
+          Hello {{ username }} ! you are Logged in as {{ roles }}. And a member
+          in groups:<span *ngFor="let g of group"> {{ g.group.name }}</span>
+        </div>
+        </div>
              <div class="card mt-3">
         <div class="status">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -60,19 +76,30 @@
     </div>
     <div class="col-6 ">
       <div class="card">
-        <div class="status">
-          <div class="post" *ngFor="let post of allPosts">
-            <img class="thumb rounded " src="../../assets/images/post.png" alt="">
-            {{ post.title }} <br />
-            {{ post.description }}
-
-            <button *ngIf="owner(post.createdBy)" class="btn btn-link" (click)="deletePost(post.id)">delete</button>
-            <br>
-            <br />
+        <div class="status"  *ngFor="let post of allPosts">
+             <div class="post" >
+              <a  (click)="openDialogPost(post)">
+            <img class="thumb rounded post_img" src="../../assets/images/post.png" alt="">
+          </a>
+            <div>
+              <a   >
+          <div class="post_title">
+            {{ post.title}}
           </div>
+        </a>
+          <div class="post_info">
+            Submitted in <span style="cursor: pointer;" >{{post.createdAt | date:'medium'}}</span>  by <span style="cursor: pointer;" >{{post.username}}</span> in <span style="color:#F9B54E;">/other</span>
+          </div>
+
+            <button *ngIf="owner(post.createdBy)" class="btn btn-link delete-post" (click)="deletePost(post.id)">delete</button>
+          </div>
+          </div>
+
           <div *ngIf="allPosts.length == 0">
             There is no posts
           </div>
+
+
         </div>
       </div>
     </div>
