@@ -10,4 +10,8 @@ constructor(id:number,username:string,name:string){
   this.username=username
 }
 
+getbyid(id:number){
+return this.username;
+}
+
 }

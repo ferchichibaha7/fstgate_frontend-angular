@@ -153,8 +153,12 @@ I'm a Student            </label>
             </div>
             <select class="custom-select" id="inputGroupSelect01" name="group" [(ngModel)]="group">
                 <option selected value="0" disabled>Choose...</option>
+                <ng-container *ngFor="let grp of groups ">
 
-              <option *ngFor="let grp of groups" value="{{grp.id}}">{{grp.name}}</option>
+                  <option *ngIf="grp.id!=2 " value="{{grp.id}}">{{grp.name}}</option>
+              </ng-container>
+
+
 
             </select>
           </div>

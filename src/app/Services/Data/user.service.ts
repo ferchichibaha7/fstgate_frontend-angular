@@ -3,7 +3,7 @@ import { UserProfile } from './../../Models/UserProfile';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-
+import { map, filter, switchMap } from 'rxjs/operators';
 
 
 const httpOptions = {
@@ -33,12 +33,19 @@ export class UserService {
   getPostsByGroup(idgroup:number): Observable<any> {
     return this.http.get<any>(this.baseurl+'posts/group/'+idgroup,httpOptions);
   }
+  getPostById(id:number): Observable<Post> {
+    return this.http.get<Post>(this.baseurl+'posts/'+id,httpOptions);
+  }
+
   getPostsBySubGroup(idsub:number): Observable<any> {
     return this.http.get<any>(this.baseurl+'posts/subgroup/'+idsub,httpOptions);
   }
 
   getSubByGroup(idgroup:number): Observable<any> {
     return this.http.get<any>(this.baseurl+'subgroup/group/'+idgroup,httpOptions);
+  }
+  getSubById(id:number): Observable<any> {
+    return this.http.get<any>(this.baseurl+'subgroups/'+id,httpOptions);
   }
 
   createPost(id:number,Post): Observable<any> {
@@ -61,5 +68,16 @@ activateUser(userid:number){
   return this.http.get(this.baseurl+'users/activate/'+userid,httpOptions)
 }
 
+confirmEmail(token:String){
+  return this.http.get(this.baseurl+'api/auth/confirm-account/'+token,httpOptions)
+}
+
+createSub(id:number,name): Observable<any> {
+  return this.http.post<any>(this.baseurl+'sub/'+id+'/'+name,Post,httpOptions);
+}
+
+disableSub(subid:number):Observable<any> {
+  return this.http.get(this.baseurl+'sub/disable/'+subid,httpOptions)
+}
 
 }

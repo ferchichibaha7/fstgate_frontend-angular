@@ -1,10 +1,11 @@
 export class Group {
-  id:number;
+
   name:string;
+  groupid:number;
 
-
-constructor(name:string){
+constructor(name:string,groupid:number){
   this.name=name;
+  this.groupid=groupid
 }
 
 }

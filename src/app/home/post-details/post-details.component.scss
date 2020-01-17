@@ -1,0 +1,50 @@
+.closeimg{
+
+width: 20px;
+cursor: pointer;
+float:right;
+margin-top: 5px;
+background-color: Transparent !important;
+background-repeat:no-repeat;
+border: none;
+overflow: hidden;
+color: rgba(0, 0, 0, 0.616);
+}
+.img-post{
+  width:200px;
+  height: 200px;
+background-size: cover;}
+.vl {
+  border-left: 2px solid rgba(192, 193, 194, 0.356);
+margin-right: 20px;
+  height: 100%;
+  margin-left: 50px;
+}
+.profile_pic{
+  height: 50px;
+  width: 50px;
+
+
+  border-radius: 100px;
+}
+.comment{
+margin-bottom: 15px;
+}
+.name{
+  color: rgb(19, 129, 202);
+}
+.info{
+  margin-left: -15px;
+}
+
+.commentInput{
+width: 80% !important;
+margin-top: 10px;
+}
+.commentform{
+  margin-top: 10px;
+}
+
+
+
+
