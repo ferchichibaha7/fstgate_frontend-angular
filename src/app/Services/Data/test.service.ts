@@ -13,7 +13,7 @@ const httpOptions = {
 
 
 
-export class TestService {
+export default class TestService {
 
   constructor(private http:HttpClient) { }
 

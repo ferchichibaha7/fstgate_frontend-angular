@@ -6,7 +6,6 @@
 
 
 <div>
-
     <div class="input-group mb-3" >
         <div class="input-group-prepend">
           <label class="input-group-text" for="subid">SubGroup</label>
@@ -39,6 +38,7 @@
   sophisticated in-browser navigational capabilities.</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
+
     <button mat-button mat-dialog-close>Cancel</button>
     <button  [disabled]="!myform.valid || subid==0" class="create-btn" type = "submit" value = "submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Create Post</button>
   </mat-dialog-actions>

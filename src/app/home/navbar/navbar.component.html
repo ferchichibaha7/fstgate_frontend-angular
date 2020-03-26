@@ -5,8 +5,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto left_nav">
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
@@ -30,13 +28,13 @@
     <div class="nav-item dropdown profile_set">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-          <img class="profile_pic " src="../../../assets/images/profilepic.png">
-          <span class="name" >{{name}}</span>
+          <img class="profile_pic "  [src]="image">
+          <span class="name" >{{Uprofile.name}}</span>
 
 
         </a>
         <div class="dropdown-menu dropdown-menu-right drop-profile" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/user/',username]">Profile</a>
+          <a class="dropdown-item" [routerLink]="['/user/',Uprofile.username]">Profile</a>
           <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="" (click)="logout()">Logout</a>

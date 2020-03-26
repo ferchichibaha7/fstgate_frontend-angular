@@ -45,6 +45,7 @@ import { GetusernamePipe } from './pipe/getusername.pipe';
     PostDetailsComponent,
     GetusernamePipe,
 
+
   ],
   imports: [
     BrowserModule,
