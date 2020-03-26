@@ -147,6 +147,22 @@
             <label class="form-check-label" for="student">
 I'm a Student            </label>
           </div>
+          <div class="input-group mb-3" *ngIf="role==3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Group</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" name="group" [(ngModel)]="group">
+                <option selected value="0" disabled>Choose...</option>
+                <ng-container *ngFor="let grp of groups ">
+
+                  <option *ngIf="grp.id!=2 " value="{{grp.id}}">{{grp.name}}</option>
+              </ng-container>
+
+
+
+            </select>
+          </div>
+
           <div class="form-check">
             <input class="form-check-input" type="radio" name="role" id="professor" value="2" [(ngModel)]="role">
             <label class="form-check-label" for="professor">
@@ -154,28 +170,13 @@ I'm a Student            </label>
           </div>
           <br>
 
-        <div class="input-group mb-3" *ngIf="role==3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Group</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" name="group" [(ngModel)]="group">
-              <option selected value="0" disabled>Choose...</option>
-
-            <option *ngFor="let grp of groups" value="{{grp.id}}">{{grp.name}}</option>
-
-          </select>
-        </div>
 
 
 
           <div class="form-group">
             <button class="btn btn-light btn-round btn-block shadow-sm mb-4">Signup</button>
-            <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-              Signup failed!<br/>{{errorMessage}}
-  </div>
-            <div *ngIf="isSignedUp">
-              Your registration is successful. Please login!
-            </div>
+
+
           </div>
         </form>
       </div>

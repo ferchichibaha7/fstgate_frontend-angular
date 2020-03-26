@@ -1,0 +1,92 @@
+<h2 mat-dialog-title>{{post.title}}  <a [mat-dialog-close]="true"  class="closeimg">X</a></h2>
+  <mat-dialog-content class="mat-typography">
+
+
+  <div class="row">
+<div class="col-6 left"  >
+<p>{{post.description}}</p>
+<div class="row">
+  <div class="col-4">
+    <img class="img-post" src="../../../assets/images/post-img/pi-1.png" alt="">
+  </div>
+  <div class="col-4">
+    <img class="img-post" src="../../../assets/images/post-img/pi-2.png" alt="">
+  </div>
+  <div class="col-4">
+    <img class="img-post" src="../../../assets/images/post-img/pi-3.png" alt="">
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <img class="img-post" src="../../../assets/images/post-img/pi-4.png" alt="">
+  </div>
+  <div class="col-4">
+    <img class="img-post" src="../../../assets/images/post-img/pi-5.png" alt="">
+  </div>
+  <div class="col-4">
+    <img class="img-post" src="../../../assets/images/post-img/pi-6.png" alt="">
+  </div>
+</div>
+
+</div>
+<div class="col-6 right">
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="vl float-left"></div>
+    <form class="form commentform" #myform = "ngForm" (ngSubmit) = "myform.form.valid && onSubmit(myform)" >
+
+
+
+      <div class="commentInput input-group mb-3" >
+
+
+
+          <input id="text"  class="form-control" type = "text" name = "text" placeholder = "Write a comment" ngModel required  minlength="1">
+
+        </div>
+        <button (keydown.enter)="onSubmit()" class="button subcomment" style="display: none;"  type="submit">Purchase</button>
+
+
+  </form>
+    <div class="comment" *ngFor="let comment of comments.content">
+      <div class="row" >
+<div class="col-2">
+  <a  ><img class="profile_pic float-left " src="../../assets/images/profilepic.png"></a>
+
+</div>
+<div  class="col-10 info">
+  <div  class="name">{{ comment.username  }}  <ng-container *ngIf="owner(comment.createdBy)  "> <span > <button  (click)="deletecomment(comment.id)"  type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button></span></ng-container>  </div>
+  <div style="color: rgb(199, 199, 199);font-size: small;">  {{comment.createdAt | date:'medium' }}</div>
+  <div class="comme">{{comment.text}}</div>
+
+</div>
+
+      </div>
+
+
+
+
+
+   </div>
+
+
+
+
+
+</div>
+</div>
+  </mat-dialog-content>
+
+
